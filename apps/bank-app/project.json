@@ -16,7 +16,7 @@
         "tsConfig": "apps/bank-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/bank-app/src/favicon.ico", "apps/bank-app/src/assets"],
-        "styles": ["apps/bank-app/src/styles.scss"],
+        "styles": ["apps/bank-app/src/styles.scss", "apps/bank-app/src/theme.scss"],
         "scripts": []
       },
       "configurations": {

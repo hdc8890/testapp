@@ -1,0 +1,31 @@
+<div class="sign-in">
+    <mat-card>
+        <mat-card-content>
+            <div class="sign-in-form-container">
+                <h1>Sign In</h1>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput placeholder="me@example.com" [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hidePassword ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hidePassword">
+                            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <button mat-raised-button color="primary" (click)="signIn()">Sign In</button>
+                </p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

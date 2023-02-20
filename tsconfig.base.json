@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@banking-lib": ["libs/banking-lib/src/index.ts"],
+      "@sign-in-lib": ["libs/sign-in-lib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

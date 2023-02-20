@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="!data.hideInput" appearance="fill">
+    <input matInput placeholder="Please enter a value"  [(ngModel)]="outputValue">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onConfirm()">Confirm</button>
+</div>
