@@ -24,6 +24,6 @@ export class AccountsController {
     }
     @Delete(':id')
     async delete(@Param('id') id: string) {
-        return this.accountsService.deleteAsync(id);
+        return this.accountsService.delete(id);
     }
 }

@@ -1,7 +1,7 @@
 <mat-card class="accounts-content">
   <h1>{{ title }}</h1>
   <mat-list>
-    <mat-list-item *ngFor="let account of accounts">
+    <mat-list-item *ngFor="let account of accounts$ | async">
       <mat-card>
         <mat-card-title>{{ account.name }}</mat-card-title>
         <mat-card-content>
@@ -11,17 +11,17 @@
         <div class="button-row">
           <div class="flex-container">
             <div class="button-container">
-              <button mat-mini-fab color="primary" (click)="deposit(account.id)">
+              <button mat-mini-fab color="primary" (click)="handleDialog('deposit', account.id, account.accountNumber)">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
             <div class="button-container">
-              <button mat-mini-fab color="accent" (click)="withdraw(account.id)">
+              <button mat-mini-fab color="accent" (click)="handleDialog('withdraw', account.id, account.accountNumber)">
                 <mat-icon>remove</mat-icon>
               </button>
             </div>
             <div class="button-container">
-              <button mat-mini-fab color="warn" (click)="deleteAccount(account.id)">
+              <button mat-mini-fab color="warn" (click)="handleDialog('delete', account.id, account.accountNumber)">
                 <mat-icon>delete</mat-icon>
               </button>
             </div>
@@ -30,7 +30,7 @@
       </mat-card>
     </mat-list-item>
   </mat-list>
-  <button mat-raised-button color="primary" (click)="createAccount()">
+  <button mat-raised-button color="primary" (click)="handleDialog('create')">
     <mat-icon>add</mat-icon>
     <span>Create Account</span>
   </button>

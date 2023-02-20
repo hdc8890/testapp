@@ -90,7 +90,8 @@ export class AccountsService extends InMemoryDBService<AccountEntity> {
         return super.get(account.id);
     }
 
-    deleteAsync(id: string): Observable<void> {
-        return super.deleteAsync(id);
+    delete(id: string) {
+        // Don't normally delete records from a database, just mark them as inactive
+        return super.delete(id);
     }
 }
