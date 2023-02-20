@@ -1,8 +1,0 @@
-{
-    "$schema": "./node_modules/nx/schemas/workspace-schema.json",
-    "version": 1,
-    "projects": {
-      "sign-in-lib": "libs/sign-in-lib",
-      "banking-lib": "libs/banking-lib"
-    }
-  }

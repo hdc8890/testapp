@@ -1,11 +1,15 @@
 import { Module } from '@nestjs/common';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { InMemoryDBModule } from '@nestjs-addons/in-memory-db';
+import { UsersController } from '../users/users.controller';
+import { AccountsController } from '../accounts/accounts.controller';
+import { AccountsService } from '../accounts/accounts.service';
+import { UsersService } from '../users/users.service';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [InMemoryDBModule],
+  controllers: [UsersController, AccountsController],
+  providers: [AccountsService, UsersService],
 })
-export class AppModule {}
+export class AppModule {
+  // TODO implement middleware to handle authentication.
+}
