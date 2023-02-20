@@ -9,6 +9,10 @@
 Run `nx serve bank-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 Run `nx serve bank-api` for the NestJS API required for this example host on http://localhost:3333/api.
 
+Test using these credentials:
+email: johndoe@example.com
+password: password
+
 ## Understand this workspace
 
 Run `nx graph` to see a diagram of the dependencies of the projects.

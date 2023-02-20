@@ -10,6 +10,8 @@ export const appRoutes: Route[] = [
     {
         path: 'accounts',
         component: AccountListComponent
+        // implement canActivate guard to check if user is authenticated
+        // use NGRX to store user details and token
     },
     {
         path: '',

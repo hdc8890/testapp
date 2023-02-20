@@ -7,10 +7,10 @@ export class UsersController {
 
     @Get()
     async getAll() {
-        return this.usersService.getAllAsync();
+        return this.usersService.getAll();
     }
     @Get(':id')
     async get(@Param('id') id: string) {
-        return this.usersService.getAsync(id);
+        return this.usersService.get(id);
     }
 }

@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { tap } from 'rxjs';
+import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { AuthenticatedUser } from '../AuthenticatedUser';
 import { SignInServiceService } from '../sign-in-service.service';
 
@@ -9,30 +9,34 @@ import { SignInServiceService } from '../sign-in-service.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent {
-  email = new FormControl('', [Validators.required, Validators.email]);
+export class SignInComponent implements OnDestroy {
+  form = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  });
   hidePassword = true;
+  subscriptions: Subscription[] = [];
   @Output() signedIn = new EventEmitter<AuthenticatedUser>();
 
   constructor(private signInService: SignInServiceService) { }
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
+  signIn() {
+    const email = this.form.value.email;
+    const password = this.form.value.password;
+    if (!email || !password) {
+      return;
     }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    this.subscriptions.push(
+      this.signInService.signIn(email, password).subscribe((user) => {
+        if (user) {
+          this.signedIn.emit(user);
+        }
+      })
+    );
   }
 
-  signIn() {
-    // TODO implement when API is running
-    // this.signInService.signIn().pipe(tap((user) => this.signedIn.emit(user)));
-    this.signedIn.emit({
-      email: '',
-      token: '',
-      expiry: 123,
-      refreshToken: '',
-    });
+  ngOnDestroy() {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 }
 

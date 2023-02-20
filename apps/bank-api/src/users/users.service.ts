@@ -23,11 +23,11 @@ export class UsersService extends InMemoryDBService<UserEntity> {
             password: 'password'
         }])
     }
-    getAsync(id: string) {
-        return super.getAsync(id)
+    get(id: string) {
+        return super.get(id)
     }
 
-    getAllAsync(): Observable<UserEntity[]> {
-        return super.getAllAsync();
+    getAll() {
+        return super.getAll();
     }
 }

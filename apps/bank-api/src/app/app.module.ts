@@ -4,10 +4,11 @@ import { UsersController } from '../users/users.controller';
 import { AccountsController } from '../accounts/accounts.controller';
 import { AccountsService } from '../accounts/accounts.service';
 import { UsersService } from '../users/users.service';
+import { AuthController } from '../auth/auth.controller';
 
 @Module({
   imports: [InMemoryDBModule],
-  controllers: [UsersController, AccountsController],
+  controllers: [UsersController, AccountsController, AuthController],
   providers: [AccountsService, UsersService],
 })
 export class AppModule {

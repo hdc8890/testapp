@@ -7,11 +7,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
-  imports: [CommonModule, MatFormFieldModule, MatIconModule, ReactiveFormsModule, MatInputModule, FormsModule, BrowserAnimationsModule, MatButtonModule, MatCardModule, HttpClientModule],
+  imports: [CommonModule, MatFormFieldModule, MatIconModule, ReactiveFormsModule, MatInputModule, FormsModule, BrowserAnimationsModule, MatButtonModule, MatCardModule, HttpClientModule, MatSnackBarModule],
   declarations: [SignInComponent], // TODO implement forgot password and register user.
   exports: [SignInComponent]
 })
