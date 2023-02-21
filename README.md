@@ -13,6 +13,9 @@ Test using these credentials:
 email: johndoe@example.com
 password: password
 
+## Testing
+Run `nx test bank-api` to run unit tests for the API. The API project contains the business logic.
+
 ## Understand this workspace
 
 Run `nx graph` to see a diagram of the dependencies of the projects.
